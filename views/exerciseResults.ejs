@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Leave</title>
+    <style>
+        /* Global reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+            color: #333; /* Dark gray text */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff; /* White background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333; /* Dark gray heading */
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #666; /* Gray label text */
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], textarea {
+            width: calc(100% - 100px);
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff8c00; /* Orange button */
+            color: #fff; /* White text */
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #ff6f00; /* Darker orange on hover */
+        }
+    </style>
+</head>
+<body>
+  <h1><%= email %></h1>
+    <div class="container">
+        <h1>Apply for Leave</h1>
+        <form action="/submit-leave" method="POST">
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" name="name" placeholder="Enter your name" required>
+            
+            <label for="studentID">Student ID:</label>
+            <input type="text" id="studentID" name="id" placeholder="Enter your student ID" required>
+
+            <label for="rollNo">email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="section">Section:</label>
+            <input type="text" id="section" name="section" placeholder="Enter your section" required>
+
+            <label for="branch">Branch:</label>
+            <input type="text" id="branch" name="branch" placeholder="Enter your branch" required>
+
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year" placeholder="Enter your year" required>
+
+            <label for="reason">Reason for Leave:</label>
+            <textarea id="reason" name="reason" placeholder="Enter reason for leave" required></textarea>
+
+            <button type="submit">Submit Leave Request</button>
+        </form>
+
+        <% if (year === null) { %>
+          <p>Your leave request is pending...</p>
+        <% } else if (year === true) { %>
+          <p>Your leave request has been approved!</p>
+        <% } else { %>
+          <p>Your leave request has been rejected.</p>
+        <% } %>
+    </div>
+</body>
+</html>

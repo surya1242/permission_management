@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madam - Leave Requests</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(rgb(246, 208, 208),rgb(165, 164, 164));
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: #fff;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        li:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        strong {
+            color: #6c63ff;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        button[name="value"][value="agree"] {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        button[name="value"][value="agree"]:hover {
+            background-color: #218838;
+        }
+
+        button[name="value"][value="reject"] {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        button[name="value"][value="reject"]:hover {
+            background-color: #c82333;
+        }
+
+        form {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            li {
+                max-width: 90%;
+                margin: 10px;
+                padding: 15px;
+            }
+            button {
+                width: 48%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Pending Leave Requests</h1>
+
+        <% if (leaveRequests.length > 0) { %>
+            <ul>
+                <% leaveRequests.forEach(request => { %>
+                    <li>
+                        <p><strong>Name:</strong> <%= request.name %></p>
+                        <p><strong>ID:</strong> <%= request.id %></p>
+                        <p><strong>Email:</strong> <%= request.email %></p>
+                        <p><strong>Section:</strong> <%= request.section %></p>
+                        <p><strong>Branch:</strong> <%= request.branch %></p>
+                        <p><strong>Year:</strong> <%= request.year %></p>
+                        <p><strong>Reason for Leave:</strong> <%= request.reason %></p>
+
+                        <form action="/madam" method="POST">
+                            <input type="hidden" name="docId" value="<%= request.docId %>">
+                            <button type="submit" name="value" value="agree">Agree</button>
+                            <button type="submit" name="value" value="reject">Reject</button>
+                        </form>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p style="color: #fff; text-align: center;">No pending leave requests.</p>
+        <% } %>
+    </div>
+</body>
+</html>

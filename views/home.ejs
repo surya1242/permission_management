@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vishnu Institute of Technology</title>
+  <style>
+    /* Resetting default margins and paddings */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://e0.pxfuel.com/wallpapers/812/618/desktop-wallpaper-university-college-campus.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      min-height: 100vh;
+    }
+
+    header {
+      color: black;
+      padding: 0 0;
+      background: none;
+      text-align: center;
+      width: 100%;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 1.5px;
+    }
+
+    .container {
+      display: flex;
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .container a {
+      text-decoration: none;
+      color: white;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .container a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    #student {
+      background: linear-gradient(45deg, #34d399, #059669);
+    }
+
+    #professor {
+      background: linear-gradient(45deg, #f97316, #ea580c);
+    }
+    
+    footer {
+      margin-top: 50px;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Vishnu Institute of Technology</h1>
+  </header>
+
+  <div class="container">
+    <a href="http://localhost:3000/login" id="student">Student</a>
+    <a href="http://localhost:3000/mlogin" id="professor">Professor</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Vishnu Institute of Technology. All rights reserved.</p>
+  </footer>
+</body>
+</html>
